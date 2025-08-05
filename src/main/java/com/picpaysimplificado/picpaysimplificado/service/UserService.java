@@ -26,6 +26,14 @@ public class UserService {
     public User findUserByid(Long id) throws Exception {
         return this.userRepository.findUserById(id).orElseThrow(() ->  new Exception("Usuario nao encontrado"));
     }
+    public User findUserByEmail(String email) throws Exception {
+        return this.userRepository.findUserByEmail(email).orElseThrow(() ->  new Exception("Usuario nao encontrado"));
+    }
+    public User findUserByCpf(String cpf) throws Exception {
+        return this.userRepository.findUserByCpf(cpf).orElseThrow(() ->  new Exception("Usuario nao encontrado"));
+    }
+
+
 
     public void saveuser( User user){
         this.userRepository.save(user);
