@@ -38,6 +38,10 @@ public class UserService {
         this.saveuser(newUser);
         return newUser;
     }
+    public List<User> getAllUsers(){
+        return this.userRepository.findAll();
+
+    }
 
     public void saveuser( User user){
         this.userRepository.save(user);
