@@ -36,5 +36,13 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserType userType;
 
+    public User(UserDto data){
+        this.firstName = data.firstName();
+        this.lastName = data.lastName();
+        this.balancer = data.balancer();
+        this.userType = data.userType();
+        this.password = data.password();
+        this.email = data.email();
+    }
 
 }
