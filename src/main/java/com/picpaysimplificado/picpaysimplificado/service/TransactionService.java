@@ -4,6 +4,7 @@ import com.picpaysimplificado.picpaysimplificado.Dto.TransactionDto;
 import com.picpaysimplificado.picpaysimplificado.domain.Entity.user.User;
 import com.picpaysimplificado.picpaysimplificado.domain.Entity.user.transaction.Transaction;
 import com.picpaysimplificado.picpaysimplificado.repository.TransactionsRepository;
+import com.picpaysimplificado.picpaysimplificado.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
