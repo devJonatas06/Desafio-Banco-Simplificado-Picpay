@@ -23,12 +23,21 @@ public class AuthorizationService {
     private String authApiUrl;
 
     public boolean authorizeTransaction(User sender, BigDecimal value){
-        ResponseEntity<Map> authorizationResponse = restTemplate.getForEntity(this.authApiUrl, Map.class);
+        ResponseEntity<Map> response = restTemplate.getForEntity(this.authApiUrl, Map.class);
 
-        if(authorizationResponse.getStatusCode() == HttpStatus.OK){
-            String message = (String) authorizationResponse.getBody().get("message");
-            return "Autorizado".equalsIgnoreCase(message);
-        } else return false;
+        if(response.getStatusCode() == HttpStatus.OK){
+            Map<String, Object> responseBody = response.getBody();
+            if (responseBody == null) return false;
+
+            Map<String, Object> data = (Map<String, Object>) responseBody.get("data");
+            if (data == null) return false;
+
+            Boolean authorized = (Boolean) data.get("authorization");
+            return Boolean.TRUE.equals(authorized);
+        }
+
+        return false;
     }
+
 }
 
