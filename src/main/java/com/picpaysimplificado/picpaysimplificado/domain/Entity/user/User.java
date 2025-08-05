@@ -1,5 +1,6 @@
 package com.picpaysimplificado.picpaysimplificado.domain.Entity.user;
 
+import com.picpaysimplificado.picpaysimplificado.Dto.UserDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,7 +31,7 @@ public class User {
 
     private  String password;
 
-    private BigDecimal balancer;
+    private BigDecimal balance;
 
 
     @Enumerated(EnumType.STRING)
@@ -39,9 +40,10 @@ public class User {
     public User(UserDto data){
         this.firstName = data.firstName();
         this.lastName = data.lastName();
-        this.balancer = data.balancer();
+        this.balance = data.balance();
         this.userType = data.userType();
         this.password = data.password();
+        this.cpf= data.cpf();
         this.email = data.email();
     }
 
