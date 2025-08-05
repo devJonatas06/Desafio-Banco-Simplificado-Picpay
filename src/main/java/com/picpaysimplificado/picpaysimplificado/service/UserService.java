@@ -33,6 +33,12 @@ public class UserService {
         return this.userRepository.findUserByCpf(cpf).orElseThrow(() ->  new Exception("Usuario nao encontrado"));
     }
 
+    public User craeteUser(UserDto data){
+        User newUser = new User(data);
+        this.saveuser(newUser);
+        return newUser;
+    }
+
     public void saveuser( User user){
         this.userRepository.save(user);
     }
