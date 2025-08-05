@@ -32,9 +32,6 @@ public class User {
 
     private BigDecimal balancer;
 
-    private String receiver;
-
-    private  String sender;
 
     @Enumerated(EnumType.STRING)
     private UserType userType;
