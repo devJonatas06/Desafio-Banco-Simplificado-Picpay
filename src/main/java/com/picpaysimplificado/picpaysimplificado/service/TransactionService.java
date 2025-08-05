@@ -27,7 +27,7 @@ public class TransactionService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public void createTransaction(TransactionDto transactionDto) throws Exception {
+    public Transaction createTransaction(TransactionDto transactionDto) throws Exception {
         User sender = this.userService.findUserByid(transactionDto.senderId());
         User receiver = this.userService.findUserByid(transactionDto.receiverId());
 
